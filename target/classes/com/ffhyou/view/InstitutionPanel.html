@@ -1,0 +1,37 @@
+<!-- <!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+	<meta charset="UTF-8">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="estilo.css" type="text/css" media="screen">
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+		crossorigin="anonymous">
+</wicket:head> -->
+
+<wicket:panel>
+	<div class="container-fluid">
+		<br /> <span id="" wicket:id="feedback"  class="alert-danger"></span>
+		<div class="card">
+			<h5 class="card-header">Make your Registry</h5>
+			<div class="card-body">
+				<form wicket:id="form">
+					<div class="row">
+						<div class="col-md-6">
+							<label for="nome" class="text">Name: *</label> <input wicket:id="name" type="text"
+								class="form-control" name="nome"
+								placeholder="Name" />
+						</div>
+
+					</div>
+					<!-- </form> -->
+					<br />
+					<button wicket:id="submit" class="btn btn-success" type="submit">Save</button>
+					<button wicket:id="voltar" type="button" class="btn btn-primary">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</wicket:panel>

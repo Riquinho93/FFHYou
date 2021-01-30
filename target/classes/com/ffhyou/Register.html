@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FFHYou</title>
+<link rel="stylesheet" type="text/css" href="solicitacaoConta.css">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+</head>
+<body class="body">
+	<br />
+
+	<div class="container">
+		<br />
+		<div class="centerdiv">
+			<h5 style="float: middle;">Make your Registry</h5>
+				<form wicket:id="form">
+						 <div class="col">
+							<label class="text">Name: *</label> <input type="text"
+								class="form-group inputbox" wicket:id="name" name="nome"
+								placeholder="Name" />
+						</div>  
+						<div class="col">
+							<label class="text">Email: *</label> <input type="text"
+								class="form-group inputbox" 
+								wicket:id="email" placeholder="example@example.com" />
+						</div>
+						<br />
+						<div class="col-md-3">
+						<Label class="text">Country: *</label> <select wicket:id="country"
+							class="form"></select>
+					</div>
+					<br />
+					<div class="col">
+						<Label class="text">Institution: *</label> <select wicket:id="institution"
+							class="form"></select>
+					</div>
+					<br />
+						<div class="col">
+							<label class="text">Password: *</label> <input type="password"
+								class="form-group inputbox" 
+								wicket:id="password"placeholder="password" />
+						</div>
+						<div class="col">
+							<label class="text">Confirm password: *</label> <input 
+								type="password" class="form-group inputbox" 
+								wicket:id="confirmarPassword" placeholder="Confirm password" />
+						</div>
+					<br />
+					<button wicket:id="submit" class="btn btn-success" type="submit">Sig up</button>
+					<button wicket:id="voltar" class="btn btn-primary" type="submit">back</button>
+				</form>
+			<br />
+		</div>
+		
+	</div>
+</body>
+</html>

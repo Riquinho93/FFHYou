@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+</wicket:head>
+<body>
+	<wicket:extend>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script type="text/javascript">
+			function sucessCadastro() {
+				swal("Cadastrado com sucesso!", "!", "success");
+			}
+			function sucessDelet() {
+				swal("Cadastrado excluido com sucesso!", "!", "success");
+			}
+		</script>
+
+		<div class="container" style="background-color: white">
+			<br />
+			<h1>INSTITUTION</h1>
+			<br>
+			<div class="container-fluid">
+				<form wicket:id="form2">
+					<div class="form-row">
+						<div class="col-sm-4">
+							<label type="text">Name</label> <input wicket:id="name"
+								type="text" class="form-control" placeholder="Informe o funcionario">
+						</div>
+						
+					</div>
+					<br /> <a wicket:id="filtrar" class="btn btn-secondary"
+						style="float: right; color: blue;">Filtrar</a>
+				</form>
+				<div>
+					<a class="btn btn-success" margin:-2px; wicket:id="viewLink"
+						style="float: right;">Novo <i class="fas fa-plus"></i>
+					</a><br /> <br />
+					<button type="button" class="btn btn-light" title="Gerar PDF"
+						style="float: right;">
+						PDF <i class="fas fa-print"></i>
+					</button>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Ações</th>
+					</tr>
+				</thead>
+				<tbody wicket:id="theContainer">
+					<tr wicket:id="listView">
+						<td class="text" wicket:id="name"></td>
+						<td class="text-center"><a wicket:id="update"
+							class="btn btn-default" rel="tooltip" title="Editar"> <i
+								class="fas fa-pencil-alt"></i>
+						</a> <a class="btn btn-default modal-confirm" wicket:id="delete"
+							title="Excluir"> <i class="fa fa-trash"></i>
+						</a></td>
+					</tr>
+				</tbody>
+				<div wicket:id="pag"></div>
+			</table>
+			<div wicket:id="modalWindow"></div>
+		 	<div wicket:id="modalWindowDel"></div> 
+			<br />
+		</div>
+	</wicket:extend>
+</body>
+</html>

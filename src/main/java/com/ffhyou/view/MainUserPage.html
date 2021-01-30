@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="mainUserPageStyle.css" type="text/css" media="screen">
+</wicket:head>
+<body>
+	<section>
+		<header>
+			<ul>
+				<li><a wicket:id="mainUserPage">Home</a></li>
+				<li><a heref="#">Profile</a></li>
+				<li><a wicket:id="exit">Sign out</a></li>
+			</ul>
+		</header>
+		<form wicket:id="form2">
+		<div class="main">
+			<img src="logoSmall.PNG">
+			<div class="searchBox">
+				<input type="text" class="search" wicket:id="country">
+				<div class="icons">
+					<div><img src="search.png"></div>
+				</div>
+			</div>
+		<div class="buttons">
+			<button wicket:id="filtrar">FFHYou Search</button>
+		</div>
+		</div>
+		</form>
+	</section>
+	
+		<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Country</th>
+					</tr>
+				</thead>
+				<tbody wicket:id="theContainer">
+					<tr wicket:id="listView">
+						<td class="text" wicket:id="name"></td>
+						<td class="text" wicket:id="country"></td>
+					</tr>
+				</tbody>
+				<div wicket:id="pag"></div>
+			
+			</table>
+		
+</body>
+
+</html>

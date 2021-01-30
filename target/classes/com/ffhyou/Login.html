@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+	<meta charset="UTF-8">
+	<title>FFYou</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" type="text/css" href="login.css">
+</wicket:head>
+<body>
+	<!-- jQUery-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!--  Ação para ocultar a div depois de 5 segundos -->
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(function() {
+				$("#goaway").fadeOut().empty();
+			}, 4000);
+		}, false);
+	</script>
+
+	<div id="goaway">
+		<span wicket:id="feedbackMessage"></span>
+	</div>
+	<div class="bgimg">
+		<div class="centerdiv">
+			<img alt="img" src="logo1Big.PNG" id="profile">
+			<h2>FFHYou</h2>
+			<form wicket:id="formularioLogin">
+				<div>
+					<input class="inputbox" type="text"
+						wicket:id="email" placeholder="email">
+				</div>
+
+				<div>
+					<input class="inputbox" type="password"
+						wicket:id="password" placeholder="password">
+				</div>
+				<br>
+				<div>
+					<button type="submit" name="submit">Login</button>
+				</div>
+			</form>
+			<br>
+			 <div class="forget-section">
+				<a wicket:id="register" text-color="white"><h4>Create account!</h4></a>
+			</div>  
+		</div>
+	</div>
+
+</body>
+</html>

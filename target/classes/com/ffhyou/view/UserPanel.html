@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+	<meta charset="UTF-8">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="estilo.css" type="text/css" media="screen">
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+		crossorigin="anonymous">
+</wicket:head> -->
+
+<wicket:panel>
+	<div class="container-fluid">
+		<br /> <span id="" wicket:id="feedback"  class="alert-danger"></span>
+		<div class="card">
+			<h5 class="card-header">Make your Registry</h5>
+			<div class="card-body">
+				<form wicket:id="form">
+					<div class="row">
+						<div class="col-md-4">
+							<label class="text">Nome: *</label> <input wicket:id="name" type="text"
+								class="form-control"
+								placeholder="Digite o nome" />
+						</div>
+						<div class="col-md-3">
+							<label class="text">Email: *</label> <input type="text"
+								class="form-group inputbox" 
+								wicket:id="email" placeholder="example@example.com" />
+						</div>
+						<div class="col-md-3">
+						<Label class="text">Country: *</label> <select wicket:id="country"
+							class="form"></select>
+					</div>
+					<div class="col-md-3">
+						<Label class="text">Institution: *</label> <select wicket:id="institution"
+							class="form"></select>
+					</div>
+						<div class="col-md-3">
+							<div wicket:id="sexo" class="col-md-6">
+								<Label class="text2">Genero: *</label><br /> <input
+									wicket:id="sim" type="radio" name="group2" value="true">Male</input>
+								<input wicket:id="nao" type="radio" name="group2" value="false">Female</input>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<label class="text">Password: *</label> <input type="password"
+								class="form-group inputbox" 
+								wicket:id="password"placeholder="password" />
+						</div>
+						<div class="col-md-3">
+							<label class="text">Confirm password: *</label> <input 
+								type="password" class="form-group inputbox" 
+								wicket:id="confirmarPassword" placeholder="Confirm password" />
+						</div>
+
+
+					</div>
+					<!-- </form> -->
+					<br />
+					<button wicket:id="submit" class="btn btn-success" type="submit">Save</button>
+					<button wicket:id="voltar" type="button" class="btn btn-primary">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</wicket:panel>
