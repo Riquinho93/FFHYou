@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.ffhyou.model.Perfil;
 import com.ffhyou.model.User;
 import com.ffhyou.service.AlertFeedback;
 import com.ffhyou.service.UserService;
@@ -61,13 +62,14 @@ public class Login extends WebPage{
 					User userPerfil =  userService.buscarPorId(id);
 					
 					getSession().setAttribute("userName", lista.get(0));
+					userPerfil.getPerfil();
 					/*if(user.getPerfil().equals(user.getPerfil().ADMIN)) {
 						setResponsePage(new TelaPrincipal(usuario));
 					}else {
 						setResponsePage(new EmployeePage(funcionario));
 					}*/
 					//setResponsePage(new HomePage(user));
-					if(user.getPerfil().equals(userPerfil.getPerfil().ADMIN)) {
+					if(user.getPerfil().equals(Perfil.ADMIN)) {
 						setResponsePage(new HomePage(user));	
 					}else {
 						setResponsePage(new MainUserPage(user));

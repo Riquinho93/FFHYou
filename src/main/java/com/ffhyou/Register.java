@@ -81,7 +81,7 @@ public class Register extends WebPage {
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 				super.onSubmit(target, form);
 				User user = (User) form.getModelObject();
-				user.setPerfil(com.ffhyou.model.Perfil.USER);
+				user.setPerfil(com.ffhyou.model.Perfil.ADMIN);
 				userService.SalvarOuAlterar(user);
 				user = new User();
 				form.clearInput();

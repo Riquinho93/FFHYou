@@ -39,6 +39,7 @@ public class MainUserPage extends WebPage {
 	@SpringBean(name = "userService")
 	private UserService userService;
 	private User filtrar;
+	private User user2;
 	
 	public MainUserPage() {
 		this(new User());
@@ -50,7 +51,8 @@ public class MainUserPage extends WebPage {
 			setResponsePage(Login.class);
 			return;
 		}
-		listUser = userService.listarCountry("Portugal");
+		user2=user;
+		listUser = userService.listar();
 		add(container());
 		add(filtrar());
 		
@@ -65,6 +67,7 @@ public class MainUserPage extends WebPage {
 		});
 		
 		add(mainUserPage());
+		add(profilePage());
 
 	}
 	
@@ -92,6 +95,9 @@ public class MainUserPage extends WebPage {
 				User user = item.getModelObject();
 				item.add(new Label("name", user.getName()));
 				item.add(new Label("country", user.getCountry().getName()));
+				item.add(new Label("institution", user.getInstitution().getName()));
+				item.add(new Label("email", user.getEmail()));
+				item.add(new Label("password", user.getPassword()));
 			}
 		};
 		add(listView);
@@ -118,15 +124,29 @@ public class MainUserPage extends WebPage {
 		add(ajaxLink);
 		return ajaxLink;
 	}
-	
+	private AjaxLink<ProfilePage> profilePage() {
+		AjaxLink<ProfilePage> ajaxLink = new AjaxLink<ProfilePage>("profilePage") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				setResponsePage(new ProfilePage(user2));
+			}
+		};
+		ajaxLink.setOutputMarkupId(true);
+		add(ajaxLink);
+		return ajaxLink;
+	}
+
 	public Form<User> filtrar() {
 		filtrar = new User();
 		form2 = new Form<User>("form2", new CompoundPropertyModel<User>(filtrar));
-	final TextField<String> country = new TextField<String>("country");
+	final TextField<String> name = new TextField<String>("name");
+	
+		name.setOutputMarkupId(true);
 
-		country.setOutputMarkupId(true);
-
-		form2.add(country);
+		form2.add(name);
 		AjaxSubmitLink ajaxSubmitLink = new AjaxSubmitLink("filtrar", form2) {
 
 			private static final long serialVersionUID = 8104552052869900594L;
@@ -138,18 +158,42 @@ public class MainUserPage extends WebPage {
 				for(int i=0; i < listUser.size(); i++) {
 					System.out.println(listUser.get(i).getName());
 				}*/
+				//User userAux;
+				//List<User> listUserAux = new ArrayList<User>();
 				
-				if (filtrar.getCountry().getClass().getName() != null && !filtrar.getCountry().getClass().getName().equals("")) {
-					search.addFilterLike("country", "country.name" + filtrar.getCountry().getName() + "%");
+				List<User> listUserAux = new ArrayList<User>();
+				System.out.println("QUANTIDADE " + listUser.size());
+				if(listUser.size()==0) {
+					listUser = userService.listar();
+					System.out.println("QUANTIDADE2 " + listUser.size());
+					target.add(listContainer);
+					
+				}else {
+					for(int i=0;i<listUser.size();i++) {
+						User userAux = (User) listUser.get(i);
+						if (userAux.getCountry().getName().equals(name.getValue())) {
+							listUserAux.add(userAux);
+						}
+						System.out.println("NOME "+ userAux.getCountry().getName());
+						System.out.println("SIZE "+ listUser.size());
+						System.out.println("Name "+ name.getValue());
+						System.out.println("SIZE2 "+ listUserAux.size());
+					}	
 				}
+				
+				
+				//if (filtrar.getCountry().getClass().getName() != null && !filtrar.getCountry().getClass().getName().equals("")) {
+					//search.addFilterLike("country", "country.name" + filtrar.getCountry().getName() + "%");
+				//}
 				/*
 				 * else if (filtrar.getCliente().getNome() != null &&
 				 * !filtrar.getCliente().getNome().equals("")) { search.addFilterLike("cliente",
 				 * "%" + filtrar.getCliente().getNome() + "%"); }
 				 */
 
-				listUser = userService.search(search);
+				listUser = listUserAux;
 				target.add(listContainer);
+				//listUser = userService.listar();
 				super.onSubmit(target, form);
 			}
 

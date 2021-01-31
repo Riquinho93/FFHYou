@@ -33,8 +33,8 @@ public class UserDao extends GenericDao<User, Serializable>{
 	
 	@SuppressWarnings("unchecked")
 //	@Transactional(readOnly = true)
-	public List<User> listarCountry(String country) {
-		String hql = "select f from User f left join  fetch c.country c" + " where f.country =:country and c.name=:country";
+	public List<User> listarCountry(String name) {
+		String hql = "select u from User u join fetch u.country c join fetch u.address "+"where u.country.name="+name;
 		Query query = getSessionFactory().getCurrentSession().createQuery(hql);
 		List<User> userList = query.list();
 		return userList;
