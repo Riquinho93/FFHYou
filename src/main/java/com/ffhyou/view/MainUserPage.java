@@ -97,7 +97,7 @@ public class MainUserPage extends WebPage {
 				item.add(new Label("country", user.getCountry().getName()));
 				item.add(new Label("institution", user.getInstitution().getName()));
 				item.add(new Label("email", user.getEmail()));
-				item.add(new Label("password", user.getPassword()));
+				
 			}
 		};
 		add(listView);

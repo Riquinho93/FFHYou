@@ -19,29 +19,26 @@
 			}
 		</script>
 
-		<div class="container" style="background-color: white">
-			<br />
-			<h1>USER</h1>
-			<br>
-			<div class="container-fluid">
+<div class="card">
+			<h1 class="card-header">Users</h1>
+			<div class="card-body">
 				<form wicket:id="form2">
 					<div class="form-row">
 						<div class="col-sm-4">
 							<label type="text">Name</label> <input wicket:id="name"
-								type="text" class="form-control" placeholder="Informe o user">
+								type="text" class="form-control" placeholder="Searching...">
 						</div>
-						
 					</div>
 					<br /> <a wicket:id="filtrar" class="btn btn-secondary"
-						style="float: right; color: green;">Filtrar</a>
+						style="float: right; color: black;">Filter</a>
 				</form>
 				<div>
 					<a class="btn btn-success" margin:-2px; wicket:id="viewLink"
-						style="float: right;">Novo <i class="fas fa-plus"></i>
+						style="float: right;">New <i class="fas fa-plus"></i>
 					</a><br /> <br />
 					<button type="button" class="btn btn-light" title="Gerar PDF"
 						style="float: right;">
-						PDF <i class="fas fa-print"></i>
+						Excel <i class="fas fa-print"></i>
 					</button>
 				</div>
 			</div>
@@ -49,7 +46,7 @@
 				<thead>
 					<tr>
 						<th scope="col">Name</th>
-						<th scope="col">Ações</th>
+						<th scope="col" class="text-center">Actions</th>
 					</tr>
 				</thead>
 				<tbody wicket:id="theContainer">
